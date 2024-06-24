@@ -1,0 +1,26 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+
+*.pyc
+__pycache__/
+db.sqlite3
+media/
+
+# Если вы используете virtualenv
+.venv
+env/
+venv/
+ENV/
+
+# Файлы настроек IDE или редактора кода
+.idea/
+.vscode/
+*.swp
+
+# Директория для статических файлов
+/static/
+
+# Файлы с секретами
+*.env
+secret.py
