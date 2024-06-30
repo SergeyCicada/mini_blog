@@ -4,5 +4,5 @@ from .models import Post
 
 
 @admin.register(Post)
-class PomstAdmin(admin.ModelAdmin):
+class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'author')
