@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #343a40; /* Тёмный фон для всей страницы */
+            color: #ffffff; /* Белый текст для лучшей читаемости на тёмном фоне */
+        }
+        .header, .footer {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            text-align: center;
+            color: #343a40; /* Тёмный текст для заголовка и подвала */
+        }
+        .post {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            position: relative;
+            background-color: #495057; /* Светлый фон для постов */
+        }
+        .post-title {
+            color: #007bff;
+        }
+        .edit-btn, .delete-btn {
+    position: absolute;
+    top: 10px;
+    background-color: #343a40; /* Тёмный фон для кнопок */
+    color: #ffffff; /* Белый текст для контраста */
+    border: none; /* Убрать стандартные границы */
+        }
+
+        .edit-btn {
+            right: 120px; /* Увеличенное расстояние между кнопками */
+        }
+
+        .delete-btn {
+            right: 10px;
+        }
+
+        .user-bar {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            display: flex; /* Использование Flexbox для выравнивания элементов */
+            justify-content: space-between; /* Распределение пространства между элементами */
+            align-items: center;
+        }
+        .user-bar p {
+            margin: 0;
+            padding: 0 20px;
+        }
+        .user-bar .date {
+            float: right; /* Удалено, так как flexbox управляет позиционированием */
+        }
+        .login-register-btn {
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Мой Блог</h1>
+    </div>
+
+    <!-- Бар личного кабинета, дата и кнопки входа/регистрации -->
+    <div class="user-bar">
+        <p>Личный кабинет</p>
+        <p class="date">{{ current_date }}</p>
+        <!-- Кнопки входа и регистрации -->
+        <div class="login-register-btn">
+            <button class="btn btn-light">Вход</button>
+            <button class="btn btn-light">Регистрация</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Здесь будет цикл Django для вывода постов -->
+        {% for post in post_list %}
+        <div class="post">
+            <h2 class="post-title">{{ post.title }}</h2>
+            <p>{{ post.description }}</p>
+            <p>{{ post.author }}</p>
+            <!-- Кнопки редактирования и удаления -->
+            <button class="btn btn-primary edit-btn">Редактировать</button>
+            <button class="btn btn-danger delete-btn">Удалить</button>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Мой Блог</p>
+    </div>
+
+    <!-- Подключение Bootstrap JS и зависимостей -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.3/dist/umd/popper.min.js"></script>
+    <script src=https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
