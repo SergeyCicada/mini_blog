@@ -27,9 +27,10 @@
 
     <div class="container">
         <!-- Здесь будет цикл Django для вывода постов -->
-        {% for post in post_list %}
+
         <div class="post">
-            <h2 class="post-title"><a href="{{ post.id }}"> {{ post.title }}</a></h2>
+            <h3 class="post-title">{{ post.title }}</h3>
+
             <p>{{ post.description }}</p>
             <a href="#"><img src ="{{post.img.url}}" width="500px"/></a>
             <p>{{ post.author }}</p>
@@ -37,7 +38,7 @@
             <button class="btn btn-primary edit-btn">Редактировать</button>
             <button class="btn btn-danger delete-btn">Удалить</button>
         </div>
-        {% endfor %}
+
     </div>
 
     <div class="footer">

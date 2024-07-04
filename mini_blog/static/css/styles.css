@@ -1,0 +1,56 @@
+body {
+    background-color: #343a40; /* Тёмный фон для всей страницы */
+    color: #ffffff; /* Белый текст для лучшей читаемости на тёмном фоне */
+}
+.header, .footer {
+    background-color: #343a40; /* Тёмный фон для заголовка и подвала */
+    padding: 10px 0;
+    text-align: center;
+    color: #ffffff; /* Белый текст для контраста */
+}
+.post {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    position: relative;
+    background-color: #495057; /* Светлый фон для постов */
+}
+.post-title {
+    color: #007bff;
+}
+.edit-btn, .delete-btn {
+    position: absolute;
+    top: 10px;
+    background-color: #343a40; /* Тёмный фон для кнопок */
+    color: #ffffff; /* Белый текст для контраста */
+    border: none; /* Убрать стандартные границы */
+}
+
+.edit-btn {
+    right: 120px; /* Увеличенное расстояние между кнопками */
+}
+
+.delete-btn {
+    right: 10px;
+}
+
+.user-bar {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    display: flex; /* Использование Flexbox для выравнивания элементов */
+    justify-content: space-between; /* Распределение пространства между элементами */
+    align-items: center;
+}
+.user-bar p {
+    margin: 0;
+    padding: 0 20px;
+}
+.user-bar .date {
+    float: right; /* Удалено, так как flexbox управляет позиционированием */
+}
+.login-register-btn {
+    padding: 0 20px;
+}
