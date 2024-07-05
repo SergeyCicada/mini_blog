@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Post(models.Model):
-    """data about post"""
+    """information about post"""
     title = models.CharField('Заголовок записи', max_length=100)
     description = models.TextField('Текст записи')
     author = models.CharField('Имя автора', max_length=100)
@@ -18,11 +18,11 @@ class Post(models.Model):
 
 
 class Comments(models.Model):
-    """data about comments"""
-    email = models.EmailField
+    """information about comment"""
+    email = models.EmailField()  # Вызовите с круглыми скобками
     name = models.CharField(max_length=50)
     text_comments = models.TextField(max_length=2000)
-    post = models.ForeignKey(Post, verbose_name='Публикация', on_delete=models.CASCADE)
+    post = models.ForeignKey('Post', verbose_name='Публикация', on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.name}, {self.post}'
@@ -30,5 +30,3 @@ class Comments(models.Model):
     class Meta:
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
-
-
