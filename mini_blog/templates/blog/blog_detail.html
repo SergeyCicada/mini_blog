@@ -15,25 +15,32 @@
     </div>
 
     <!-- User bar, date, and login/register buttons -->
-        <div class="user-bar">
+    <div class="user-bar">
+        <a href="/">
             <p>Главная</p>
-            <p class="date">{{ current_date }}</p>
-            <!-- Login and registration buttons -->
-            <div class="login-register-btn">
-                <button class="btn btn-light">Вход</button>
-                <button class="btn btn-light">Регистрация</button>
-            </div>
+        </a>
+        <p class="date">{{ current_date }}</p>
+        <!-- Login and registration buttons -->
+        <div class="login-register-btn">
+            <button class="btn btn-light">Вход</button>
+            <button class="btn btn-light">Регистрация</button>
         </div>
+    </div>
 
     <div class="container">
         <!-- Django loop for displaying posts will be here -->
 
         <div class="post">
             <h3 class="post-title">{{ post.title }}</h3>
-
             <p>{{ post.description }}</p>
             <a href="#"><img src="{{post.img.url}}" width="500px"/></a>
             <p>{{ post.author }}</p>
+            <!-- Like and dislike buttons -->
+            <div class="like-dislike">
+                <p>Понравилось: {{ post.likes_set.all.count }}</p>
+                <a href="{%url 'add_likes' post.id %}">👍</a>
+                <a href="{%url 'del_likes' post.id %}">👎 </a>
+            </div>
             <!-- Edit and delete buttons -->
             <button class="btn btn-primary edit-btn">Редактировать</button>
             <button class="btn btn-danger delete-btn">Удалить</button>
@@ -81,5 +88,20 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Like and Dislike Script -->
+    <script>
+        let likeCount = 0;
+        let dislikeCount = 0;
+
+        function likePost() {
+            likeCount++;
+            document.getElementById('like-count').innerText = likeCount;
+        }
+
+        function dislikePost() {
+            dislikeCount++;
+            document.getElementById('dislike-count').innerText = dislikeCount;
+        }
+    </script>
 </body>
 </html>
